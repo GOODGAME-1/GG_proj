@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GG Coin — Community · Future · Fun</title>
+
+  <!-- favicon placeholder -->
+  <link rel="icon" href="favicon.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+            <img src="Imgs/logo.png" alt="GG Coin Logo" />
+          </div>
+          
+        <div class="brand-text">
+          <div class="brand-title">GG Coin</div>
+          <div class="brand-sub">$GG · BNB Chain</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#presale">Presale</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <a class="cta" id="buy-now" href="#" target="_blank" rel="noopener">Buy $GG</a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="toggleMobileNav()">About</a>
+    <a href="#tokenomics" onclick="toggleMobileNav()">Tokenomics</a>
+    <a href="#presale" onclick="toggleMobileNav()">Presale</a>
+    <a href="#community" onclick="toggleMobileNav()">Community</a>
+    <a href="#" class="mobile-buy" onclick="toggleMobileNav()">Buy $GG</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1 class="hero-title">GG Coin — The future of community power</h1>
+          <p class="hero-lead">GG Coin ($GG) isn’t just another token — it’s a movement. Built on the BNB Chain, GG unites dreamers, gamers and believers to build a decentralized, fun and fearless community economy.</p>
+
+          <div class="hero-actions">
+            <a href="#presale" class="btn btn-primary">Presale & Countdown</a>
+            <a href="#tokenomics" class="btn btn-ghost">Tokenomics</a>
+          </div>
+
+          <div class="quick-stats">
+            <div><strong>Max Supply</strong><span>1,000,000,000 GG</span></div>
+            <div><strong>Launch</strong><span>BNB Chain</span></div>
+            <div><strong>Ticker</strong><span>$GG</span></div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="card countdown-card" id="presale">
+            <div class="card-header">Presale starts</div>
+            <div class="countdown" id="countdown">
+              <div><span id="days">--</span><small>DAYS</small></div>
+              <div><span id="hours">--</span><small>HOURS</small></div>
+              <div><span id="minutes">--</span><small>MIN</small></div>
+              <div><span id="seconds">--</span><small>SEC</small></div>
+            </div>
+            <div class="presale-info">
+              <div><strong>When</strong><span>Nov 1, 2025 · 18:00 UTC</span></div>
+              <div><strong>Where</strong><span>Pinksale / BNB Chain</span></div>
+              <div><strong>Contract</strong><span id="contract">Not deployed</span></div>
+            </div>
+            <a class="btn btn-primary w-full" href="#" target="_blank" rel="noopener">Get ready →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>About GG</h2>
+        <p class="lead">GG Coin ($GG) isn’t just another token — it’s a movement. Built on the <strong>BNB Chain</strong>, GG unites dreamers, gamers, and believers under one vision: a <strong>decentralized, fun, and fearless</strong> community economy. No presale tricks. No hidden fees. Just pure community energy. Join us as we build the future of meme finance — <em>by the people, for the people.</em></p>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section class="section alt" id="tokenomics">
+      <div class="container token-grid">
+        <div class="card token-card">
+          <h3>Tokenomics</h3>
+          <ul>
+            <li><span>Max Supply</span><strong>1,000,000,000 GG</strong></li>
+            <li><span>Launch Tax</span><strong>0%</strong></li>
+            <li><span>Community</span><strong>60%</strong></li>
+            <li><span>Liquidity</span><strong>20%</strong></li>
+            <li><span>Team (vested)</span><strong>10%</strong></li>
+            <li><span>Treasury & Partnerships</span><strong>10%</strong></li>
+          </ul>
+        </div>
+
+        <div class="card token-card">
+          <h3>Distribution</h3>
+          <p class="small">All allocations will be transparent and visible on-chain. Team tokens are vested to align interests with the community. Liquidity will be locked and progress shared publicly.</p>
+          <div class="token-actions">
+            <a href="#" class="btn btn-ghost">Whitepaper (Coming)</a>
+            <a href="#" class="btn btn-ghost">Audit (Planned)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="section" id="community">
+      <div class="container">
+        <h2>Join the Community</h2>
+        <p class="lead">Be part of the GG movement — memes, mini-games, AMAs, rewards and real-world community events. Follow and join our channels to stay updated.</p>
+
+        <div class="socials">
+          <a class="social" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="social" href="#" target="_blank" rel="noopener">💬 Telegram</a>
+          <a class="social" href="#" target="_blank" rel="noopener">📄 Medium</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+            <div class="logo small">
+                <img src="Imgs/logo.png" alt="GG Coin Logo" />
+              </div>
+          <div>GG Coin · $GG · BNB Chain</div>
+        </div>
+        <div class="footer-center">
+          <nav>
+            <a href="#about">About</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#presale">Presale</a>
+            <a href="#community">Community</a>
+          </nav>
+        </div>
+        <div class="footer-right">
+          <div class="copyright">© 2025 GG Coin. Not financial advice.</div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // MOBILE NAV TOGGLE
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    function toggleMobileNav() {
+      mobileNav.classList.toggle('open');
+    }
+    mobileToggle?.addEventListener('click', toggleMobileNav);
+
+    // PRESALE COUNTDOWN to Nov 1, 2025 18:00:00 UTC
+    const target = new Date('2025-11-01T18:00:00Z').getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<div class="started">Presale is live!</div>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
