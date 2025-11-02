@@ -1175,6 +1175,212 @@ footer {
     left: 20px;
   }
 }
+/* 即将上线部分样式 */
+#comingsoon {
+  background: rgba(0, 30, 60, 0.6);
+  border-radius: 20px;
+  margin: 60px auto;
+  padding: 60px 40px;
+}
+
+.comingsoon-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.comingsoon-card {
+  background: rgba(0, 40, 80, 0.5);
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  transition: 0.3s;
+}
+
+.comingsoon-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+}
+
+.comingsoon-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.comingsoon-card h3 {
+  color: var(--light);
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.comingsoon-card p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 191, 255, 0.2);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.newsletter-signup {
+  text-align: center;
+  background: rgba(0, 40, 80, 0.5);
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 191, 255, 0.3);
+}
+
+.newsletter-signup h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.newsletter-signup p {
+  color: var(--gray);
+  margin-bottom: 25px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 愿景网格样式 */
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.vision-card {
+  background: rgba(0, 30, 60, 0.7);
+  padding: 40px 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.vision-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.vision-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.vision-card h3 {
+  color: var(--light);
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.vision-card p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* GG时刻即将上线样式 */
+.moments-coming-soon {
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.coming-soon-content i {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.coming-soon-content h3 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+}
+
+.coming-soon-content p {
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-preview {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-item i {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.preview-item span {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .comingsoon-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .vision-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-preview {
+    gap: 20px;
+  }
+  
+  .preview-item i {
+    font-size: 1.5rem;
+  }
+}
 
 @media (max-width: 768px) {
   header {

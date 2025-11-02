@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 初始化所有组件
   initCountdown();
+  initPresaleCountdown();
   initParticles();
   initScrollAnimations();
   initCopyButton();
@@ -13,11 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
   initGGMoments();
 });
 
-// Presale 倒计时
+// 主倒计时
 function initCountdown() {
   const countdownEl = document.getElementById('countdown');
-  // 设置为未来某个日期
-  const target = new Date('2025-11-01T18:00:00Z').getTime();
+  const target = new Date('2025-12-01T01:30:00Z').getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -56,6 +56,67 @@ function initCountdown() {
 
   setInterval(updateCountdown, 1000);
   updateCountdown();
+}
+
+// 预售倒计时功能
+function initPresaleCountdown() {
+  const presaleCountdown = document.getElementById('presaleCountdown');
+  const presaleProgress = document.getElementById('presaleProgress');
+  const raisedAmount = document.getElementById('raisedAmount');
+  
+  // 模拟预售数据
+  let raised = 45; // 已筹集BNB数量
+  const hardCap = 200; // 硬顶
+  
+  // 更新进度条
+  if (presaleProgress && raisedAmount) {
+    const progress = (raised / hardCap) * 100;
+    presaleProgress.style.width = `${progress}%`;
+    raisedAmount.textContent = raised;
+  }
+  
+  // 预售倒计时
+  if (presaleCountdown) {
+    const target = new Date('2024-02-01T18:00:00Z').getTime();
+    
+    function updatePresaleCountdown() {
+      const now = new Date().getTime();
+      const diff = target - now;
+      
+      if (diff <= 0) {
+        presaleCountdown.textContent = "🚀 Presale Live!";
+        presaleCountdown.style.color = "#00ffaa";
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      presaleCountdown.innerHTML = `
+        <div class="countdown-large-item">
+          <div>${days}</div>
+          <span>Days</span>
+        </div>
+        <div class="countdown-large-item">
+          <div>${hours}</div>
+          <span>Hours</span>
+        </div>
+        <div class="countdown-large-item">
+          <div>${minutes}</div>
+          <span>Mins</span>
+        </div>
+        <div class="countdown-large-item">
+          <div>${seconds}</div>
+          <span>Secs</span>
+        </div>
+      `;
+    }
+    
+    setInterval(updatePresaleCountdown, 1000);
+    updatePresaleCountdown();
+  }
 }
 
 // 背景粒子动画
@@ -197,6 +258,95 @@ function initCopyButton() {
     });
   }
 }
+
+// 社区统计数字动画
+function initCommunityStats() {
+  const holderCount = document.getElementById('holderCount');
+  const marketCap = document.getElementById('marketCap');
+  const communitySize = document.getElementById('communitySize');
+  
+  // 模拟数据 - 在实际应用中应从API获取
+  const stats = {
+    holders: 1250,
+    marketCap: 125000,
+    community: 5800
+  };
+  
+  // 数字动画函数
+  function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      // 使用缓动函数使动画更自然
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const value = Math.floor(easeOutQuart * (end - start) + start);
+      
+      if (element === marketCap) {
+        element.textContent = `$${value.toLocaleString()}`;
+      } else {
+        element.textContent = value.toLocaleString();
+      }
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+  
+  // 当统计元素进入视口时触发动画
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateValue(holderCount, 0, stats.holders, 2000);
+        animateValue(marketCap, 0, stats.marketCap, 2000);
+        animateValue(communitySize, 0, stats.community, 2000);
+        
+        // 停止观察，避免重复动画
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  });
+  
+  // 观察社区版块
+  const communitySection = document.getElementById('community');
+  if (communitySection) {
+    statsObserver.observe(communitySection);
+  }
+}
+
+// 移动端菜单
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menuToggle');
+  const headerNav = document.querySelector('header nav');
+  
+  if (menuToggle && headerNav) {
+    menuToggle.addEventListener('click', () => {
+      headerNav.style.display = headerNav.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    // 点击导航链接后关闭菜单（移动端）
+    headerNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          headerNav.style.display = 'none';
+        }
+      });
+    });
+    
+    // 窗口调整大小时重置导航显示
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        headerNav.style.display = 'flex';
+      } else {
+        headerNav.style.display = 'none';
+      }
+    });
+  }
+}
+
 // GG Moments 功能
 function initGGMoments() {
   const momentForm = document.getElementById('momentForm');
@@ -205,39 +355,40 @@ function initGGMoments() {
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   const charCount = document.getElementById('charCount');
   const momentStory = document.getElementById('momentStory');
+  const submitBtn = document.getElementById('submitBtn');
   
   let currentFilter = 'all';
-  let displayedMoments = 2; // 初始显示的数量
+  let displayedMoments = 2;
   const momentsPerLoad = 4;
 
-  // 示例数据 - 在实际应用中应从后端API获取
+  // 示例数据
   const sampleMoments = [
     {
       id: 1,
-      playerName: "StrategyMaster",
-      title: "Perfect 200 IQ Play in Chess",
-      story: "Opponent thought they had me in checkmate, but I found a hidden stalemate pattern. They messaged 'GG WP' after the game!",
-      gameType: "Strategy",
+      playerName: "ValleyGuardian",
+      title: "Let enemy surrender after pentakill",
+      story: "After getting pentakill in League, I didn't taunt but told opponents 'GG, you played well'. They responded 'True esports spirit, GG'",
+      gameType: "MOBA",
       ggType: "Good Game",
-      likes: 28,
-      comments: 5,
+      likes: 128,
+      comments: 23,
       timestamp: "2024-01-15"
     },
     {
       id: 2,
-      playerName: "ApexPredator",
-      title: "Carried New Players to Victory",
-      story: "Two brand new players in my Apex squad. Instead of getting frustrated, I guided them to their first win. Their excitement was priceless!",
-      gameType: "Battle Royale",
+      playerName: "FairPlayer",
+      title: "Gave reconnection chance after DC",
+      story: "Opponent's internet disconnected, I had chance to win easily. But I paused and waited for reconnection. After match he thanked me for showing 'true GG spirit'",
+      gameType: "MOBA",
       ggType: "Game's Gift",
       likes: 89,
-      comments: 12,
+      comments: 15,
       timestamp: "2024-01-14"
     },
     {
       id: 3,
       playerName: "SniperElite",
-      title: "Impossible No-Scope Across Map",
+      title: "Impossible no-scope across map",
       story: "Final circle in Warzone, 1v1 situation. Hit a crazy no-scope from 300m to win the game. Even the opponent said 'deserved win GG'",
       gameType: "FPS",
       ggType: "Great Going",
@@ -248,35 +399,13 @@ function initGGMoments() {
     {
       id: 4,
       playerName: "RacingPro",
-      title: "Clean Overtake in Final Lap",
+      title: "Clean overtake in final lap",
       story: "In a tight Gran Turismo race, made a clean overtake in the final corner without any contact. Respectful racing at its best!",
       gameType: "Racing",
       ggType: "Good Game",
       likes: 42,
       comments: 7,
       timestamp: "2024-01-12"
-    },
-    {
-      id: 5,
-      playerName: "HealerMain",
-      title: "Saved Team from Wipe with 1HP",
-      story: "As the last standing healer, managed to keep everyone alive with perfect timing. The 'GG healer' in chat made my day!",
-      gameType: "RPG",
-      ggType: "Great Going",
-      likes: 73,
-      comments: 9,
-      timestamp: "2024-01-11"
-    },
-    {
-      id: 6,
-      playerName: "SportsmanshipKing",
-      title: "Helped Opponent After DC",
-      story: "Opponent's internet disconnected during ranked match. Instead of taking free win, I waited for them to reconnect. They thanked me with 'true GG spirit'",
-      gameType: "MOBA",
-      ggType: "Game's Gift",
-      likes: 204,
-      comments: 31,
-      timestamp: "2024-01-10"
     }
   ];
 
@@ -298,30 +427,73 @@ function initGGMoments() {
     momentForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
+      if (!validateForm()) return;
+      
       const formData = {
         playerName: document.getElementById('playerName').value,
+        playerEmail: document.getElementById('playerEmail').value || 'Not provided',
         title: document.getElementById('momentTitle').value,
         story: document.getElementById('momentStory').value,
         gameType: document.getElementById('gameType').value,
-        ggType: document.querySelector('input[name="ggType"]:checked').value
+        ggType: document.querySelector('input[name="ggType"]:checked').value,
+        timestamp: new Date().toLocaleString()
       };
       
-      // 在实际应用中，这里应该发送到后端API
-      submitMoment(formData);
+      // 显示加载状态
+      setButtonLoading(true);
       
-      // 重置表单
-      this.reset();
-      charCount.textContent = '0';
-      
-      // 显示成功消息
-      showToast('GG Moment shared successfully! 🎮');
+      try {
+        // 模拟发送到后端
+        setTimeout(() => {
+          submitMoment(formData);
+          setButtonSuccess();
+          
+          // 重置表单
+          setTimeout(() => {
+            momentForm.reset();
+            charCount.textContent = '0';
+            setButtonNormal();
+          }, 2000);
+        }, 1500);
+        
+      } catch (error) {
+        console.error('Failed to submit:', error);
+        showToast('Failed to submit your GG moment. Please try again.', 'error');
+        setButtonNormal();
+      }
     });
+  }
+
+  // 表单验证
+  function validateForm() {
+    const requiredFields = [
+      'playerName',
+      'momentTitle', 
+      'momentStory',
+      'gameType'
+    ];
+    
+    for (let field of requiredFields) {
+      const element = document.getElementById(field);
+      if (!element.value.trim()) {
+        showToast(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`, 'error');
+        element.focus();
+        return false;
+      }
+    }
+    
+    if (!document.getElementById('emailConsent').checked) {
+      showToast('Please agree to share your GG moment', 'error');
+      return false;
+    }
+    
+    return true;
   }
 
   // 提交时刻
   function submitMoment(data) {
     const newMoment = {
-      id: Date.now(), // 使用时间戳作为临时ID
+      id: Date.now(),
       playerName: data.playerName,
       title: data.title,
       story: data.story,
@@ -340,6 +512,31 @@ function initGGMoments() {
     
     // 重置显示数量
     displayedMoments = 2;
+  }
+
+  // 按钮状态控制
+  function setButtonLoading(isLoading) {
+    if (isLoading) {
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner"></i> Sharing...';
+    } else {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  }
+
+  function setButtonSuccess() {
+    submitBtn.classList.remove('loading');
+    submitBtn.classList.add('success');
+    submitBtn.innerHTML = '<i class="fas fa-check"></i> Successfully Shared!';
+    showToast('Your GG moment has been shared! 🎮', 'success');
+  }
+
+  function setButtonNormal() {
+    submitBtn.classList.remove('loading', 'success');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<i class="fas fa-share"></i> Share Your Moment';
   }
 
   // 过滤按钮事件
@@ -438,8 +635,8 @@ function initGGMoments() {
           <button class="action-btn like-btn" data-moment-id="${moment.id}">
             <i class="far fa-heart"></i> <span>${moment.likes}</span>
           </button>
-          <button class="action-btn">
-            <i class="far fa-comment"></i> <span>${moment.comments}</span>
+          <button class="action-btn share-btn" data-moment-id="${moment.id}">
+            <i class="fas fa-share-alt"></i>
           </button>
         </div>
       </div>
@@ -449,6 +646,12 @@ function initGGMoments() {
     const likeBtn = card.querySelector('.like-btn');
     likeBtn.addEventListener('click', function() {
       handleLike(moment.id, this);
+    });
+    
+    // 添加分享功能
+    const shareBtn = card.querySelector('.share-btn');
+    shareBtn.addEventListener('click', function() {
+      shareMoment(moment);
     });
     
     return card;
@@ -477,6 +680,100 @@ function initGGMoments() {
     likeCount.textContent = moment.likes;
   }
 
+  // 分享时刻功能
+  function shareMoment(moment) {
+    const shareText = `Check out this GG moment: "${moment.title}" - ${moment.story.substring(0, 100)}... #GGCoin #GoodGame`;
+    const shareUrl = `https://x.com/gege749258?s=11`;
+    
+    const shareModal = document.createElement('div');
+    shareModal.className = 'share-modal';
+    shareModal.innerHTML = `
+      <div class="share-content">
+        <h3>Share this GG Moment</h3>
+        <p>${shareText}</p>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" 
+             class="btn btn-twitter" target="_blank">
+            <i class="fab fa-twitter"></i> Share on Twitter
+          </a>
+          <button class="btn btn-secondary copy-share">Copy Text</button>
+          <button class="btn btn-outline close-share">Close</button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(shareModal);
+    
+    // 添加分享模态框样式
+    const style = document.createElement('style');
+    style.textContent = `
+      .share-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+      .share-content {
+        background: var(--darker);
+        padding: 30px;
+        border-radius: 15px;
+        border: 2px solid var(--primary);
+        max-width: 500px;
+        width: 90%;
+      }
+      .share-content h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+      .share-content p {
+        color: var(--gray);
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+      }
+      .share-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .btn-twitter {
+        background: #1DA1F2;
+        color: white;
+      }
+      .copy-share {
+        margin: 10px 0;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // 事件监听
+    shareModal.querySelector('.copy-share').addEventListener('click', function() {
+      navigator.clipboard.writeText(shareText).then(() => {
+        showToast('GG Moment text copied! 📋');
+      });
+    });
+    
+    shareModal.querySelector('.close-share').addEventListener('click', function() {
+      document.body.removeChild(shareModal);
+      document.head.removeChild(style);
+    });
+    
+    // 点击背景关闭
+    shareModal.addEventListener('click', function(e) {
+      if (e.target === shareModal) {
+        document.body.removeChild(shareModal);
+        document.head.removeChild(style);
+      }
+    });
+  }
+
   // 工具函数
   function getGameIcon(gameType) {
     const icons = {
@@ -501,113 +798,37 @@ function initGGMoments() {
     return classes[ggType] || 'good-game';
   }
 
-  function showToast(message) {
-    // 创建或使用现有的toast
-    let toast = document.getElementById('submitToast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'submitToast';
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
-    
-    toast.textContent = message;
-    toast.classList.add('show');
-    
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-  }
-
   // 初始渲染
   renderMoments();
 }
-// 社区统计数字动画
-function initCommunityStats() {
-  const holderCount = document.getElementById('holderCount');
-  const marketCap = document.getElementById('marketCap');
-  const communitySize = document.getElementById('communitySize');
-  
-  // 模拟数据 - 在实际应用中应从API获取
-  const stats = {
-    holders: 1250,
-    marketCap: 125000,
-    community: 5800
-  };
-  
-  // 数字动画函数
-  function animateValue(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      
-      // 使用缓动函数使动画更自然
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      const value = Math.floor(easeOutQuart * (end - start) + start);
-      
-      if (element === marketCap) {
-        element.textContent = `$${value.toLocaleString()}`;
-      } else {
-        element.textContent = value.toLocaleString();
-      }
-      
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-  
-  // 当统计元素进入视口时触发动画
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateValue(holderCount, 0, stats.holders, 2000);
-        animateValue(marketCap, 0, stats.marketCap, 2000);
-        animateValue(communitySize, 0, stats.community, 2000);
-        
-        // 停止观察，避免重复动画
-        statsObserver.unobserve(entry.target);
-      }
-    });
-  });
-  
-  // 观察社区版块
-  const communitySection = document.getElementById('community');
-  if (communitySection) {
-    statsObserver.observe(communitySection);
-  }
-}
 
-// 移动端菜单
-function initMobileMenu() {
-  const menuToggle = document.getElementById('menuToggle');
-  const headerNav = document.querySelector('header nav');
-  
-  if (menuToggle && headerNav) {
-    menuToggle.addEventListener('click', () => {
-      headerNav.style.display = headerNav.style.display === 'flex' ? 'none' : 'flex';
-    });
-    
-    // 点击导航链接后关闭菜单（移动端）
-    headerNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          headerNav.style.display = 'none';
-        }
-      });
-    });
-    
-    // 窗口调整大小时重置导航显示
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        headerNav.style.display = 'flex';
-      } else {
-        headerNav.style.display = 'none';
-      }
-    });
+// 增强的提示功能
+function showToast(message, type = 'success') {
+  let toast = document.getElementById('dynamicToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'dynamicToast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
   }
+  
+  // 设置样式基于类型
+  if (type === 'error') {
+    toast.style.background = 'var(--danger)';
+  } else if (type === 'warning') {
+    toast.style.background = 'var(--warning)';
+    toast.style.color = 'var(--darker)';
+  } else {
+    toast.style.background = 'var(--success)';
+    toast.style.color = 'var(--darker)';
+  }
+  
+  toast.textContent = message;
+  toast.classList.add('show');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
 }
 
 // 添加一些交互效果
@@ -652,4 +873,31 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   window.addEventListener('scroll', setActiveNavLink);
+  
+  // 添加平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 });
+
+// 错误处理
+window.addEventListener('error', function(e) {
+  console.error('JavaScript Error:', e.error);
+});
+
+// 性能监控
+if ('performance' in window) {
+  window.addEventListener('load', function() {
+    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+    console.log(`Page loaded in ${loadTime}ms`);
+  });
+}

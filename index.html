@@ -10,10 +10,10 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- 背景粒子 -->
+  <!-- Background Particles -->
   <canvas id="bgCanvas"></canvas>
 
-  <!-- 导航栏 -->
+  <!-- Navigation -->
   <header>
     <div class="logo">
       <img src="Imgs/logo.png" alt="GG Coin Logo" />
@@ -21,8 +21,9 @@
     </div>
     <nav>
       <a href="#about">About</a>
+      <a href="#comingsoon">Coming Soon</a>
       <a href="#tokenomics">Tokenomics</a>
-      <a href="#roadmap">Roadmap</a>
+      <a href="#roadmap">Vision</a>
       <a href="#moments">GG Moments</a>
       <a href="#community">Community</a>
     </nav>
@@ -31,21 +32,26 @@
     </button>
   </header>
 
-  <!-- HERO区域 -->
+  <!-- HERO Section -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h1>GOOD GAME, <span class="gradient-text">WELL PLAYED</span></h1>
-        <p>The meme token that celebrates sportsmanship, community, and the spirit of gaming worldwide. 🎮✨</p>
+        <h1>GG Coin: <span class="gradient-text">Global Recognition for Good Games</span></h1>
+        <p>GG Coin isn't about making money, it's about GG. A meme token for everyone who takes gaming seriously but life lightly.</p>
         <div class="contract-address">
           <strong>Contract Address:</strong>
-          <code id="contractCode">0x14107Cb09e28DB6E45eE75c8Bb02673bC332f5B0</code>
-          <button id="copyBtn" class="copy-btn"><i class="far fa-copy"></i></button>
+          <code id="contractCode">Coming Soon...</code>
+          <button id="copyBtn" class="copy-btn" disabled><i class="far fa-copy"></i></button>
         </div>
-        <div id="countdown" class="countdown"></div>
+        <div id="countdown" class="countdown">
+          <div class="countdown-item">
+            <span>🚀</span>
+            <label>Launching Soon</label>
+          </div>
+        </div>
         <div class="hero-buttons">
-          <a href="#buy" class="btn btn-primary">Join Presale</a>
-          <a href="#whitepaper" class="btn btn-secondary">Read Manifesto</a>
+          <a href="#comingsoon" class="btn btn-primary">Coming Soon</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -55,9 +61,10 @@
             <div class="pixel-gg">GG</div>
           </div>
           <div class="card-info">
-            <p><strong>Ticker:</strong> GG</p>
+            <p><strong>Symbol:</strong> GG</p>
+            <p><strong>Name:</strong> Good Game</p>
             <p><strong>Chain:</strong> BNB Smart Chain</p>
-            <p><strong>Total Supply:</strong> 4,000,000,000</p>
+            <p><strong>Total Supply:</strong> 4 Billion</p>
           </div>
         </div>
       </div>
@@ -67,41 +74,101 @@
     </div>
   </section>
 
-  <!-- 关于我们 -->
+  <!-- About Section -->
   <section id="about" class="fade-in">
     <div class="section-header">
-      <h2>More Than A Token, It's A Nod</h2>
-      <p>GG Coin is a social experiment on the blockchain, a cultural symbol for players, meme lovers, and everyone who values sportsmanship.</p>
+      <h2>What is GG Coin?</h2>
+      <p>GG Coin is not a financial product. It's a social experiment on blockchain, a cultural symbol created for players, meme lovers, and everyone who values sportsmanship.</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
-        <div class="card-icon">🎮</div>
-        <h3>For Gamers</h3>
-        <p>Celebrating every "Good Game" moment in gaming culture</p>
-      </div>
-      <div class="about-card">
         <div class="card-icon">🌍</div>
-        <h3>Global Language</h3>
-        <p>"GG" transcends borders - the universal handshake of gamers</p>
+        <h3>The Global Language of GG</h3>
+        <p>"GG" transcends borders and languages - it's our universal handshake as gamers</p>
+        <ul class="feature-list">
+          <li>Good Game - Sincere appreciation for great matches</li>
+          <li>Great Going - Instant cheers for outstanding performance</li>
+          <li>Game's Gift - Gratitude for the joy games bring us</li>
+        </ul>
       </div>
+      
       <div class="about-card">
-        <div class="card-icon">🤝</div>
-        <h3>Community First</h3>
-        <p>Built by the community, for the community. No VC, no bullshit.</p>
+        <div class="card-icon">🎯</div>
+        <h3>Why We Built This?</h3>
+        <p>In the vast digital world, finding like-minded souls who believe in "playing seriously, winning and losing gracefully"</p>
+        <p class="highlight">When you see someone using GG Coin, you instantly know: "This person gets it."</p>
       </div>
+      
       <div class="about-card">
-        <div class="card-icon">⚡</div>
-        <h3>Meme Energy</h3>
-        <p>Powered by pure meme magic and gaming passion</p>
+        <div class="card-icon">🏆</div>
+        <h3>Our Beliefs</h3>
+        <ul class="belief-list">
+          <li>🏆 Win with humility, lose with grace</li>
+          <li>🎯 Play for fun, learn for growth</li>
+          <li>🤝 Consensus from shared joy, not profit pursuit</li>
+        </ul>
+      </div>
+      
+      <div class="about-card">
+        <div class="card-icon">🚀</div>
+        <h3>What's Next?</h3>
+        <p>We don't make assumptions - this is an open exploration</p>
+        <p>The future is painted by the community together - NFTs, community events, governance, or creating the best memes</p>
+        <p class="quote">"GG" is never the end, but the starting point of all fun</p>
       </div>
     </div>
   </section>
 
-  <!-- 代币经济 -->
+  <!-- Coming Soon Section -->
+  <section id="comingsoon" class="fade-in">
+    <div class="section-header">
+      <h2>Coming Soon</h2>
+      <p>Great things are in development. Stay tuned for updates!</p>
+    </div>
+    <div class="comingsoon-container">
+      <div class="comingsoon-card">
+        <div class="comingsoon-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Token Launch</h3>
+        <p>Fair launch details coming soon</p>
+        <div class="status-badge">In Development</div>
+      </div>
+      
+      <div class="comingsoon-card">
+        <div class="comingsoon-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Community Platform</h3>
+        <p>Join our growing community of gamers</p>
+        <div class="status-badge">Building</div>
+      </div>
+      
+      <div class="comingsoon-card">
+        <div class="comingsoon-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>GG Moments</h3>
+        <p>Share your best gaming moments</p>
+        <div class="status-badge">Coming Soon</div>
+      </div>
+    </div>
+    
+    <div class="newsletter-signup">
+      <h3>Stay Updated</h3>
+      <p>Be the first to know when we launch</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Notify Me</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Tokenomics Section -->
   <section id="tokenomics" class="fade-in">
     <div class="section-header">
       <h2>Tokenomics</h2>
-      <p>Transparent and fair distribution for long-term growth</p>
+      <p>Total supply 4B GG, completely transparent distribution</p>
     </div>
     <div class="tokenomics-container">
       <div class="chart-container">
@@ -111,7 +178,7 @@
         <ul>
           <li>
             <span class="color-indicator presale"></span>
-            <strong>Presale:</strong> 2,000,000,000 GG (50%)
+            <strong>Community Distribution:</strong> 2,000,000,000 GG (50%)
           </li>
           <li>
             <span class="color-indicator liquidity"></span>
@@ -119,7 +186,7 @@
           </li>
           <li>
             <span class="color-indicator team"></span>
-            <strong>Team:</strong> 300,000,000 GG (7.5%)
+            <strong>Team Allocation:</strong> 300,000,000 GG (7.5%)
           </li>
           <li>
             <span class="color-indicator airdrop"></span>
@@ -133,205 +200,113 @@
             <li>1% Holder Redistribution</li>
           </ul>
         </div>
+        <div class="lock-info">
+          <h4>🔒 Locking Mechanism</h4>
+          <p>Team tokens will be locked with transparent vesting schedule</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 路线图 -->
+  <!-- Vision Section -->
   <section id="roadmap" class="fade-in">
     <div class="section-header">
-      <h2>Roadmap - The GG Journey</h2>
-      <p>This is a community-driven adventure. The path unfolds together!</p>
+      <h2>Our Vision</h2>
+      <p>We don't make assumptions - this is an open exploration. The future is painted by the community together.</p>
     </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-marker phase1"></div>
-        <div class="timeline-content">
-          <h3>Phase 1: The Opening Game</h3>
-          <ul>
-            <li>Community Building & Presale</li>
-            <li>Website & Social Media Launch</li>
-            <li>1,000 Holder Milestone</li>
-            <li>First GG Meme Contest</li>
-          </ul>
-        </div>
+    <div class="vision-grid">
+      <div class="vision-card">
+        <div class="vision-number">01</div>
+        <h3>Community First</h3>
+        <p>Building a genuine community of gamers who value sportsmanship over profits</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-marker phase2"></div>
-        <div class="timeline-content">
-          <h3>Phase 2: Building Momentum</h3>
-          <ul>
-            <li>DEX Listing (PancakeSwap)</li>
-            <li>GG Moments Platform Launch</li>
-            <li>Community Governance Setup</li>
-            <li>First NFT Collection</li>
-          </ul>
-        </div>
+      
+      <div class="vision-card">
+        <div class="vision-number">02</div>
+        <h3>Cultural Movement</h3>
+        <p>Spreading the true spirit of "GG" beyond gaming into a global cultural phenomenon</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-marker phase3"></div>
-        <div class="timeline-content">
-          <h3>Phase 3: Going Global</h3>
-          <ul>
-            <li>CEX Listings</li>
-            <li>GG Tip Bot Development</li>
-            <li>Partnerships with Gaming Communities</li>
-            <li>Global GG Memes Go Viral</li>
-          </ul>
+      
+      <div class="vision-card">
+        <div class="vision-number">03</div>
+        <h3>Innovation</h3>
+        <p>Exploring new ways to bring gamers together through blockchain technology</p>
+      </div>
+    </div>
+    <div class="roadmap-note">
+      <p>🎯 This isn't a traditional roadmap, but an open exploration. Every next step is decided by community consensus.</p>
+    </div>
+  </section>
+
+  <!-- GG Moments Section -->
+  <section id="moments" class="fade-in">
+    <div class="section-header">
+      <h2>GG Moments</h2>
+      <p>Share your gaming highlights and spread the GG spirit</p>
+    </div>
+    
+    <div class="moments-container">
+      <div class="moments-coming-soon">
+        <div class="coming-soon-content">
+          <i class="fas fa-gamepad"></i>
+          <h3>GG Moments Coming Soon</h3>
+          <p>Share your best gaming moments and celebrate sportsmanship with the community</p>
+          <div class="feature-preview">
+            <div class="preview-item">
+              <i class="fas fa-share-alt"></i>
+              <span>Share Stories</span>
+            </div>
+            <div class="preview-item">
+              <i class="fas fa-heart"></i>
+              <span>Community Votes</span>
+            </div>
+            <div class="preview-item">
+              <i class="fas fa-trophy"></i>
+              <span>Weekly Highlights</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- GG时刻 -->
-<section id="moments" class="fade-in">
-  <div class="section-header">
-    <h2>GG Moments</h2>
-    <p>Share your best gaming moments and celebrate sportsmanship together</p>
-  </div>
-  
-  <div class="moments-container">
-    <!-- 提交表单 -->
-    <div class="moment-submission">
-      <h3>Share Your GG Moment</h3>
-      <form id="momentForm" class="moment-form">
-        <div class="form-group">
-          <label for="playerName">Your Gaming ID *</label>
-          <input type="text" id="playerName" placeholder="Enter your game ID" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="playerEmail">Your Email (Optional)</label>
-          <input type="email" id="playerEmail" placeholder="Enter your email for updates">
-        </div>
-        
-        <div class="form-group">
-          <label for="momentTitle">Moment Title *</label>
-          <input type="text" id="momentTitle" placeholder="e.g., Epic comeback in League" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="momentStory">Your GG Story *</label>
-          <textarea id="momentStory" placeholder="Tell us about your memorable gaming moment... (Max 500 characters)" maxlength="500" required></textarea>
-          <div class="char-count"><span id="charCount">0</span>/500</div>
-        </div>
-        
-        <div class="form-group">
-          <label for="gameType">Game Type *</label>
-          <select id="gameType" required>
-            <option value="">Select a game</option>
-            <option value="MOBA">MOBA (League, Dota 2)</option>
-            <option value="FPS">FPS (CS:GO, Valorant)</option>
-            <option value="Battle Royale">Battle Royale (Fortnite, PUBG)</option>
-            <option value="RPG">RPG (WoW, Genshin)</option>
-            <option value="Sports">Sports (FIFA, NBA 2K)</option>
-            <option value="Racing">Racing (Gran Turismo, Forza)</option>
-            <option value="Strategy">Strategy (Chess, StarCraft)</option>
-            <option value="Other">Other Games</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label>GG Type *</label>
-          <div class="gg-type-selector">
-            <label class="gg-type-option">
-              <input type="radio" name="ggType" value="Good Game" checked>
-              <span class="gg-radio">Good Game</span>
-            </label>
-            <label class="gg-type-option">
-              <input type="radio" name="ggType" value="Great Going">
-              <span class="gg-radio">Great Going</span>
-            </label>
-            <label class="gg-type-option">
-              <input type="radio" name="ggType" value="Game's Gift">
-              <span class="gg-radio">Game's Gift</span>
-            </label>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label class="consent-checkbox">
-            <input type="checkbox" id="emailConsent" required>
-            <span>I agree to have this GG moment shared with the GG Coin team and potentially featured on our platform</span>
-          </label>
-        </div>
-        
-        <button type="submit" class="btn btn-primary" id="submitBtn">
-          <i class="fas fa-share"></i> Share Your Moment
-        </button>
-        
-        <div class="form-note">
-          <p><small>By submitting, you agree that your GG moment may be featured in our community gallery. Your email will only be used to notify you if your story is selected.</small></p>
-        </div>
-      </form>
-    </div>
-
-    <!-- 动态生成的时刻展示 -->
-    <div class="moments-showcase">
-      <h3>Community GG Moments</h3>
-      <div class="moments-filter">
-        <button class="filter-btn active" data-filter="all">All Moments</button>
-        <button class="filter-btn" data-filter="Good Game">Good Game</button>
-        <button class="filter-btn" data-filter="Great Going">Great Going</button>
-        <button class="filter-btn" data-filter="Game's Gift">Game's Gift</button>
-      </div>
-      
-      <div class="moments-grid" id="momentsGrid">
-        <!-- 动态生成的时刻卡片 -->
-      </div>
-      
-      <!-- 加载更多按钮 -->
-      <div class="load-more-container">
-        <button id="loadMoreBtn" class="btn btn-outline">
-          <i class="fas fa-sync"></i> Load More GG Moments
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- 社区 -->
+  <!-- Community Section -->
   <section id="community" class="fade-in">
     <div class="section-header">
       <h2>Join The GG Family</h2>
-      <p>Connect with fellow gamers and meme enthusiasts worldwide</p>
+      <p>Connect with players worldwide who believe in "playing seriously, winning and losing gracefully"</p>
     </div>
     <div class="community-stats">
       <div class="stat">
-        <div class="stat-number" id="holderCount">0</div>
-        <div class="stat-label">Holders</div>
+        <div class="stat-number">0</div>
+        <div class="stat-label">Future Holders</div>
       </div>
       <div class="stat">
-        <div class="stat-number" id="marketCap">$0</div>
-        <div class="stat-label">Market Cap</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number" id="communitySize">0</div>
+        <div class="stat-number">0</div>
         <div class="stat-label">Community Members</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Big Idea</div>
       </div>
     </div>
     <div class="social-links">
-      <a href="#" class="social-link twitter">
+      <a href="https://x.com/gege749258?s=11" class="social-link twitter" target="_blank">
         <i class="fab fa-twitter"></i>
-        <span>Twitter</span>
+        <span>Follow Updates</span>
       </a>
-      <a href="#" class="social-link telegram">
+      <a href="#" class="social-link telegram" target="_blank">
         <i class="fab fa-telegram"></i>
-        <span>Telegram</span>
+        <span>Join Community</span>
       </a>
-      <a href="#" class="social-link discord">
+      <a href="#" class="social-link discord" target="_blank">
         <i class="fab fa-discord"></i>
         <span>Discord</span>
-      </a>
-      <a href="#" class="social-link reddit">
-        <i class="fab fa-reddit"></i>
-        <span>Reddit</span>
       </a>
     </div>
   </section>
 
-  <!-- 页脚 -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
@@ -341,18 +316,18 @@
       </div>
       <div class="footer-links">
         <a href="#about">About</a>
+        <a href="#comingsoon">Coming Soon</a>
         <a href="#tokenomics">Tokenomics</a>
-        <a href="#roadmap">Roadmap</a>
         <a href="#community">Community</a>
       </div>
       <div class="footer-legal">
-        <p>GG Coin is a meme token and social experiment. Not financial advice.</p>
+        <p>GG Coin is a meme token and social experiment. Not financial advice. We're not here to get rich, but to find like-minded souls.</p>
         <p>© <span id="year"></span> GG Coin Community. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- 复制成功提示 -->
-  <div id="copyToast" class="toast">Contract address copied!</div>
+  <!-- Copy Success Toast -->
+  <div id="copyToast" class="toast">Coming soon!</div>
 </body>
 </html>
