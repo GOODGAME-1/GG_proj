@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('year').textContent = new Date().getFullYear();
   
   // 初始化所有组件
-  initCountdown();
+  //initCountdown();
   initPresaleCountdown();
   initParticles();
   initScrollAnimations();
