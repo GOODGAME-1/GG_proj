@@ -21,10 +21,10 @@
     </div>
     <nav>
       <a href="#about">About</a>
-      <a href="#comingsoon">Coming Soon</a>
+      <a href="#presale">Presale</a>
       <a href="#tokenomics">Tokenomics</a>
       <a href="#roadmap">Vision</a>
-      <a href="#moments">GG Moments</a>
+      <a href="#howtobuy">How to Buy</a>
       <a href="#community">Community</a>
     </nav>
     <button class="menu-toggle" id="menuToggle">
@@ -50,8 +50,8 @@
           </div>
         </div>
         <div class="hero-buttons">
-          <a href="#comingsoon" class="btn btn-primary">Coming Soon</a>
-          <a href="#about" class="btn btn-secondary">Learn More</a>
+          <a href="#presale" class="btn btn-primary">Join Presale</a>
+          <a href="#howtobuy" class="btn btn-secondary">How to Buy</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -119,48 +119,180 @@
     </div>
   </section>
 
-  <!-- Coming Soon Section -->
-  <section id="comingsoon" class="fade-in">
+  <!-- Presale Section -->
+  <section id="presale" class="fade-in">
     <div class="section-header">
-      <h2>Coming Soon</h2>
-      <p>Great things are in development. Stay tuned for updates!</p>
-    </div>
-    <div class="comingsoon-container">
-      <div class="comingsoon-card">
-        <div class="comingsoon-icon">
-          <i class="fas fa-rocket"></i>
-        </div>
-        <h3>Token Launch</h3>
-        <p>Fair launch details coming soon</p>
-        <div class="status-badge">In Development</div>
-      </div>
-      
-      <div class="comingsoon-card">
-        <div class="comingsoon-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <h3>Community Platform</h3>
-        <p>Join our growing community of gamers</p>
-        <div class="status-badge">Building</div>
-      </div>
-      
-      <div class="comingsoon-card">
-        <div class="comingsoon-icon">
-          <i class="fas fa-gamepad"></i>
-        </div>
-        <h3>GG Moments</h3>
-        <p>Share your best gaming moments</p>
-        <div class="status-badge">Coming Soon</div>
-      </div>
+      <h2>Presale Information</h2>
+      <p>Be part of the GG revolution from the beginning</p>
     </div>
     
-    <div class="newsletter-signup">
-      <h3>Stay Updated</h3>
-      <p>Be the first to know when we launch</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit" class="btn btn-primary">Notify Me</button>
-      </form>
+    <div class="presale-container">
+      <div class="presale-card">
+        <div class="presale-header">
+          <h3>GG Coin Presale</h3>
+          <div class="presale-status">
+            <span class="status-badge">Coming Soon</span>
+          </div>
+        </div>
+        
+        <div class="presale-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-label">Presale Price</div>
+              <div class="info-value">TBA</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Listing Price</div>
+              <div class="info-value">TBA</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Soft Cap</div>
+              <div class="info-value">TBA</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Hard Cap</div>
+              <div class="info-value">TBA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="presale-progress">
+          <div class="progress-header">
+            <span>Progress</span>
+            <span id="raisedAmount">0</span> / <span id="hardCap">TBA</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="presaleProgress"></div>
+          </div>
+        </div>
+
+        <div class="presale-countdown">
+          <h4>Presale Starts In</h4>
+          <div id="presaleCountdown" class="countdown-large">
+            <div class="countdown-large-item">
+              <div>--</div>
+              <span>Days</span>
+            </div>
+            <div class="countdown-large-item">
+              <div>--</div>
+              <span>Hours</span>
+            </div>
+            <div class="countdown-large-item">
+              <div>--</div>
+              <span>Mins</span>
+            </div>
+            <div class="countdown-large-item">
+              <div>--</div>
+              <span>Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="presale-actions">
+          <button class="btn btn-primary btn-large" disabled>
+            <i class="fas fa-clock"></i>
+            Presale Starting Soon
+          </button>
+          <div class="presale-note">
+            <p><i class="fas fa-info-circle"></i> Details will be announced soon. Stay tuned!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="presale-benefits">
+        <h3>Why Join Presale?</h3>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <h4>Early Access</h4>
+              <p>Get GG tokens at the lowest possible price</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-users"></i>
+            <div>
+              <h4>Community Building</h4>
+              <p>Be part of the founding GG community</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-gem"></i>
+            <div>
+              <h4>Exclusive Benefits</h4>
+              <p>Early supporters get special recognition</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-rocket"></i>
+            <div>
+              <h4>Launch Priority</h4>
+              <p>First in line for future developments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Buy Section -->
+  <section id="howtobuy" class="fade-in">
+    <div class="section-header">
+      <h2>How to Buy GG Coin</h2>
+      <p>Simple steps to join the GG community</p>
+    </div>
+    
+    <div class="buy-steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <h3>Setup Wallet</h3>
+        <p>Install MetaMask or Trust Wallet and add BNB Smart Chain</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-icon">
+          <i class="fas fa-coins"></i>
+        </div>
+        <h3>Get BNB</h3>
+        <p>Buy BNB and send it to your wallet for presale participation</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Join Presale</h3>
+        <p>Connect wallet and participate in our upcoming presale</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Receive GG</h3>
+        <p>Get your GG tokens after presale ends and trading begins</p>
+      </div>
+    </div>
+
+    <div class="exchange-info">
+      <h3>Future Exchanges</h3>
+      <p>GG Coin will be available on major decentralized exchanges after launch</p>
+      <div class="exchange-logos">
+        <div class="exchange-logo">
+          <i class="fas fa-exchange-alt"></i>
+          <span>PancakeSwap</span>
+        </div>
+        <div class="exchange-logo">
+          <i class="fas fa-chart-bar"></i>
+          <span>Other DEXs</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -238,38 +370,6 @@
     </div>
   </section>
 
-  <!-- GG Moments Section -->
-  <section id="moments" class="fade-in">
-    <div class="section-header">
-      <h2>GG Moments</h2>
-      <p>Share your gaming highlights and spread the GG spirit</p>
-    </div>
-    
-    <div class="moments-container">
-      <div class="moments-coming-soon">
-        <div class="coming-soon-content">
-          <i class="fas fa-gamepad"></i>
-          <h3>GG Moments Coming Soon</h3>
-          <p>Share your best gaming moments and celebrate sportsmanship with the community</p>
-          <div class="feature-preview">
-            <div class="preview-item">
-              <i class="fas fa-share-alt"></i>
-              <span>Share Stories</span>
-            </div>
-            <div class="preview-item">
-              <i class="fas fa-heart"></i>
-              <span>Community Votes</span>
-            </div>
-            <div class="preview-item">
-              <i class="fas fa-trophy"></i>
-              <span>Weekly Highlights</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Community Section -->
   <section id="community" class="fade-in">
     <div class="section-header">
@@ -316,7 +416,7 @@
       </div>
       <div class="footer-links">
         <a href="#about">About</a>
-        <a href="#comingsoon">Coming Soon</a>
+        <a href="#presale">Presale</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="#community">Community</a>
       </div>
