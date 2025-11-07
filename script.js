@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // 主倒计时
 function initCountdown() {
   const countdownEl = document.getElementById('countdown');
-  const target = new Date('2025-12-01T01:30:00Z').getTime();
+  //const target = new Date('2025-12-01T01:30:00Z').getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
